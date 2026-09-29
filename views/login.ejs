@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Login</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #98e0b8;
+            padding: 20px;
+        }
+
+        .container {
+            width: 780px;
+            max-width: 100%;
+            background: white;
+            border: 1px solid #cfe4da;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .login-box {
+            display: flex;
+            min-height: 430px;
+        }
+
+        .left {
+            width: 43%;
+            background: #063b2d;
+            color: white;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #62e6a3;
+            margin-bottom: 5px;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        .tagline {
+            font-size: 12px;
+            color: #c9ded6;
+            margin-bottom: 35px;
+        }
+
+        .icon {
+            font-size: 65px;
+            margin-bottom: 20px;
+        }
+
+        .left h2 {
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .left p {
+            font-size: 12px;
+            line-height: 1.6;
+            color: #c9ded6;
+        }
+
+        .right {
+            width: 57%;
+            padding: 45px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .right h1 {
+            text-align: center;
+            font-size: 23px;
+            color: #173b31;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+            margin-bottom: 25px;
+        }
+
+        .field {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-size: 11px;
+            color: #456158;
+            margin-bottom: 5px;
+        }
+
+        input {
+            width: 100%;
+            height: 39px;
+            border: 1px solid #d5e2dd;
+            border-radius: 5px;
+            padding: 0 11px;
+            outline: none;
+            font-size: 12px;
+        }
+
+        input:focus {
+            border-color: #159b61;
+        }
+
+        .btn {
+            width: 100%;
+            height: 39px;
+            border: none;
+            border-radius: 5px;
+            background: #079b5d;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background: #067f4d;
+        }
+
+        .bottom-text {
+            text-align: center;
+            font-size: 11px;
+            color: #777;
+            margin-top: 18px;
+        }
+
+        .bottom-text a {
+            color: #079b5d;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @media (max-width: 650px) {
+
+            .login-box {
+                flex-direction: column;
+            }
+
+            .left,
+            .right {
+                width: 100%;
+            }
+
+            .left {
+                padding: 25px;
+            }
+
+            .right {
+                padding: 30px 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="login-box">
+
+            <div class="left">
+
+                <div class="logo">
+                    Student<span>Hub</span>
+                </div>
+
+                <div class="tagline">
+                    Learn • Grow • Achieve
+                </div>
+
+                <div class="icon">
+                    🎓
+                </div>
+
+                <h2>Welcome Back</h2>
+
+                <p>
+                    Login to access your student
+                    account and information.
+                </p>
+
+            </div>
+
+
+            <div class="right">
+
+                <h1>Welcome Back</h1>
+
+                <p class="subtitle">
+                    Login to your student account
+                </p>
+
+                <form action="/login" method="POST">
+
+                    <div class="field">
+                        <label>Email</label>
+
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+                    </div>
+
+                    <div class="field">
+                        <label>Password</label>
+
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Enter your password"
+                            required
+                        >
+                    </div>
+
+                    <button class="btn" type="submit">
+                        Login
+                    </button>
+
+                </form>
+
+                <div class="bottom-text">
+                    Don't have an account?
+                    <a href="/register">Register</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>

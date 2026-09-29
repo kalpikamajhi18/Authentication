@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Student Registration</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #eef7f2;
+            padding: 20px;
+        }
+
+        .container {
+            width: 850px;
+            max-width: 100%;
+            background: white;
+            border: 1px solid #cfe4da;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        .register-box {
+            display: flex;
+        }
+
+        /* LEFT */
+
+        .left {
+            width: 42%;
+            background: #063b2d;
+            color: white;
+            padding: 40px 30px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            color: #62e6a3;
+            margin-bottom: 5px;
+        }
+
+        .logo span {
+            color: white;
+        }
+
+        .tagline {
+            font-size: 12px;
+            color: #c9ded6;
+            margin-bottom: 35px;
+        }
+
+        .icon {
+            font-size: 65px;
+            margin-bottom: 20px;
+        }
+
+        .left h2 {
+            font-size: 21px;
+            margin-bottom: 8px;
+        }
+
+        .left p {
+            font-size: 12px;
+            line-height: 1.6;
+            color: #c9ded6;
+        }
+
+        /* RIGHT */
+
+        .right {
+            width: 58%;
+            padding: 35px 45px;
+        }
+
+        .right h1 {
+            text-align: center;
+            font-size: 23px;
+            color: #173b31;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            text-align: center;
+            font-size: 12px;
+            color: #777;
+            margin-bottom: 22px;
+        }
+
+        .row {
+            display: flex;
+            gap: 12px;
+        }
+
+        .field {
+            width: 100%;
+            margin-bottom: 12px;
+        }
+
+        .row .field {
+            width: 50%;
+        }
+
+        label {
+            display: block;
+            font-size: 11px;
+            color: #456158;
+            margin-bottom: 5px;
+        }
+
+        input,
+        select {
+            width: 100%;
+            height: 37px;
+            border: 1px solid #d5e2dd;
+            border-radius: 5px;
+            padding: 0 10px;
+            outline: none;
+            font-size: 12px;
+            background: #fff;
+        }
+
+        input:focus,
+        select:focus {
+            border-color: #159b61;
+        }
+
+        .btn {
+            width: 100%;
+            height: 38px;
+            border: none;
+            border-radius: 5px;
+            background: #079b5d;
+            color: white;
+            font-size: 12px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 4px;
+        }
+
+        .btn:hover {
+            background: #067f4d;
+        }
+
+        .bottom-text {
+            text-align: center;
+            font-size: 11px;
+            color: #777;
+            margin-top: 15px;
+        }
+
+        .bottom-text a {
+            color: #079b5d;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        @media (max-width: 700px) {
+
+            .register-box {
+                flex-direction: column;
+            }
+
+            .left,
+            .right {
+                width: 100%;
+            }
+
+            .left {
+                padding: 25px;
+            }
+
+            .right {
+                padding: 30px 25px;
+            }
+        }
+
+        @media (max-width: 450px) {
+
+            .row {
+                flex-direction: column;
+                gap: 0;
+            }
+
+            .row .field {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="register-box">
+
+            <div class="left">
+
+                <div class="logo">
+                    Student<span>Hub</span>
+                </div>
+
+                <div class="tagline">
+                    Learn • Grow • Achieve
+                </div>
+
+                <div class="icon">
+                    🎓
+                </div>
+
+                <h2>Student Registration</h2>
+
+                <p>
+                    Create your account and keep
+                    your student information organized.
+                </p>
+
+            </div>
+
+
+            <div class="right">
+
+                <h1>Create Account</h1>
+
+                <p class="subtitle">
+                    Register as a student
+                </p>
+
+                <form action="/register" method="POST">
+
+                    <div class="field">
+                        <label>Full Name</label>
+                        <input
+                            type="text"
+                            name="name"
+                            placeholder="Enter your name"
+                            required
+                        >
+                    </div>
+
+                    <div class="field">
+                        <label>Email</label>
+                        <input
+                            type="email"
+                            name="email"
+                            placeholder="Enter your email"
+                            required
+                        >
+                    </div>
+
+                    <div class="row">
+
+                        <div class="field">
+                            <label>Age</label>
+                            <input
+                                type="number"
+                                name="age"
+                                placeholder="Enter age"
+                                required
+                            >
+                        </div>
+
+                        <div class="field">
+                            <label>Gender</label>
+                            <select name="gender" required>
+                                <option value="">Select</option>
+                                <option>Male</option>
+                                <option>Female</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+
+                        <div class="field">
+                            <label>City</label>
+                            <input
+                                type="text"
+                                name="city"
+                                placeholder="Enter city"
+                                required
+                            >
+                        </div>
+
+                        <div class="field">
+                            <label>Contact</label>
+                            <input
+                                type="tel"
+                                name="contact"
+                                placeholder="Enter contact"
+                                required
+                            >
+                        </div>
+
+                    </div>
+
+                    <div class="field">
+                        <label>Password</label>
+                        <input
+                            type="password"
+                            name="password"
+                            placeholder="Create password"
+                            required
+                        >
+                    </div>
+
+                    <button class="btn" type="submit">
+                        Register
+                    </button>
+
+                </form>
+
+                <div class="bottom-text">
+                    Already have an account?
+                    <a href="/login">Login</a>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</body>
+</html>
