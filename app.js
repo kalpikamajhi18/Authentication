@@ -14,17 +14,24 @@ app.get("/register", (req,res)=>{
 })
 app.post("/register", async(req,res)=>{
    const {name, email, password} = req.body;
+   const checkuser = await usermodel.findOne({email});
+   if(checkuser){
+    res.send("Email already exists!");
+   }
    bcrypt.genSalt(10, (err, salt)=>{
       bcrypt.hash(password, salt, async (err, hash)=>{
          let create = await usermodel.create({
-            name,
-            email,
+            name: name,
+            email: email,
             password: hash
          })
          console.log(create);
        
       })
    })
+    const JWT_SECRET = process.env.jwtSecret;
+   let token = jwt.sign({email:email}, JWT_SECRET )
+   res.cookie("email", token)
      res.redirect("/login")
 })
 
@@ -32,13 +39,16 @@ app.get("/login", (req, res)=>{
     res.render("login")
 })
 app.post("/login", async(req,res)=>{
-    let user = await usermodel.findone({email:req.body.email});
+    let user = await usermodel.findOne({email:req.body.email});
     if(!user){
-      return res.send("something is wrong")
+      return res.send("something went wrong")
     }
     bcrypt.compare(req.body.password, user.password, (err, result)=>{
-      if(result) res.send("yes you can login")
-         res.render("dashboard")
+      if(result){
+        return res.render("dashboard")
+      } 
+      res.send("something went wrong")
+        
     } )
 })
 
